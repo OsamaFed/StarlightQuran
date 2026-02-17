@@ -5,14 +5,11 @@ import { motion } from "framer-motion";
 import { useAudio } from "@/contexts/AudioContext";
 import styles from "./AudioPlayer.module.css";
 
-// ✅ دالة تحويل المسار إلى Cloudinary URL
 const CLOUDINARY_BASE = "https://res.cloudinary.com/dhrvnkv1b/video/upload";
 
 function getAudioUrl(path: string): string {
   if (!path) return "";
-  // لو كان رابط كامل خليه كما هو
   if (path.startsWith("http")) return path;
-  // استخرج اسم الملف بدون المسار والامتداد
   const filename = path.replace(/^\/audio\//, "").replace(/\.mp3$/, "");
   return `${CLOUDINARY_BASE}/${filename}`;
 }
@@ -35,16 +32,14 @@ export default function AudioPlayer({
   const [showProgress, setShowProgress] = useState(false);
 
   const audioId = useId();
-  const { currentAudioId, setCurrentAudioId, stopAllAudio, registerAudio } =
-    useAudio();
+  const { currentAudioId, setCurrentAudioId, stopAllAudio, registerAudio } = useAudio();
 
   if (!audioPath) return null;
 
-  // ✅ تحويل المسار هنا
   const resolvedUrl = getAudioUrl(audioPath);
 
   if (!audioId) {
-    registerAudio(audioId, audioRef);
+    registerAudio(audioId, audioRef as any);
   }
 
   const togglePlay = () => {
@@ -60,7 +55,7 @@ export default function AudioPlayer({
         setIsPlaying(true);
         setShowProgress(true);
         setCurrentAudioId(audioId);
-        registerAudio(audioId, audioRef);
+        registerAudio(audioId, audioRef as any);
       }
     }
   };
@@ -100,7 +95,6 @@ export default function AudioPlayer({
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
     >
-      {/* ✅ الرابط المحوّل */}
       <audio
         ref={audioRef}
         src={resolvedUrl}
