@@ -1,0 +1,457 @@
+.wrapper {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 1.5rem 2rem;
+}
+
+.header {
+  background: transparent;
+  
+  backdrop-filter: var(--glass-blur-xl);
+  -webkit-backdrop-filter: var(--glass-blur-xl);
+  border: none;
+  border-radius: var(--radius-lg);
+  padding: 1rem;
+  margin-bottom: 2rem;
+  transition: background var(--timing-fast), border-color var(--timing-fast);
+  position: relative;
+  z-index: 100;
+}
+
+.titleContainer {
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+.titleSection {
+  display: block;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.titleText {
+  font-size: 2rem;
+  font-weight: 700;
+  background: var(--global-text-color);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+  padding: 0;
+  letter-spacing: 0.05em;
+}
+
+.subtitle {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  opacity: 0.9;
+  margin: 0;
+}
+
+.controlsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.8rem;
+  margin: 0;
+  width: 100%;
+}
+
+.searchAndSurahSection,
+.favoritesSection {
+  background: transparent;
+  backdrop-filter: var(--glass-blur-xl);
+  -webkit-backdrop-filter: var(--glass-blur-xl);
+  border: none;
+  border-radius: var(--radius-xl);
+  display: flex;
+  gap: 0.6rem;
+  position: relative;
+}
+
+.searchAndSurahSection {
+  flex-direction: row;
+  z-index: 1000;
+}
+
+.favoritesSection {
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 0.6rem;
+  width: 100%;
+  z-index: 1;
+}
+
+
+.controlsGrid .favoritesSection > * {
+  flex: 1;
+  text-align: center;
+  background: transparent;
+  backdrop-filter: var(--glass-blur-xl);
+  -webkit-backdrop-filter: var(--glass-blur-xl);
+  border: none;
+  border-radius: var(--radius-lg);
+  padding: 0.75rem 1.25rem;
+}
+
+.fontControlsCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  order: 2;
+  flex: 1;
+}
+
+
+.controlsGrid .fontControlsCenter > * {
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: none;
+  border-radius: var(--radius-lg);
+  padding: 0;
+}
+
+.toolsSection {
+  display: grid;
+  gap: 1rem;
+  auto-rows: max-content;
+}
+
+.toolsSection > * {
+  background: transparent;
+  backdrop-filter: var(--glass-blur-xl);
+  -webkit-backdrop-filter: var(--glass-blur-xl);
+  border: none;
+  border-radius: var(--radius-xl);
+  padding: 0.75rem 1.25rem;
+}
+
+.SearchResults {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.SearchResults > * {
+  pointer-events: auto;
+}
+
+
+.quranFrame {
+  background: transparent;
+  backdrop-filter: var(--glass-blur-xl);
+  -webkit-backdrop-filter: var(--glass-blur-xl);
+  border: none;
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  min-height: 400px;
+  margin-bottom: 2rem;
+  opacity: 1;
+  z-index: 1;
+  position: relative;
+  content-visibility: auto;
+  contain-intrinsic-size: 0 600px;
+}
+
+.Bismallah {
+  font-family: 'Amiri Quran', 'KoGaliModern', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 12px;
+  padding: 10px;
+  padding-bottom: 72px;
+  border-radius: var(--radius-lg);
+  position: relative;
+  background: var(--glass-effect-bg);
+  backdrop-filter: var(--glass-blur-lg);
+  -webkit-backdrop-filter: var(--glass-blur-lg);
+}
+
+.quranContent {
+  position: relative;
+  z-index: 2;
+}
+
+.versesContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.6rem;
+}
+
+.versesContainer > div {
+  background: transparent;
+  backdrop-filter: var(--glass-blur-xl);
+  -webkit-backdrop-filter: var(--glass-blur-xl);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  border: none;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3);
+}
+
+.introContainer,
+.waqfDropdownContainer {
+  background: transparent;
+  backdrop-filter: var(--glass-blur-xl);
+  -webkit-backdrop-filter: var(--glass-blur-xl);
+  z-index: 1;
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 2rem;
+}
+
+.introContainer {
+  text-align: center;
+  z-index: 1;
+}
+
+.introContainer > * {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+.waqfDropdownContainer {
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  transition: all var(--timing-fast);
+}
+
+.waqfDropdownBtn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all var(--timing-fast);
+}
+
+.waqfDropdownContent {
+  background: transparent;
+  border-top: none;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  padding: 1rem;
+  margin-top: 0.5rem;
+}
+
+.surahIndicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  background: transparent;
+  backdrop-filter: var(--glass-blur-xl);
+  -webkit-backdrop-filter: var(--glass-blur-xl);
+  z-index: 1;
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.1rem;
+  flex-direction: row;
+}
+
+.surahName {
+  font-family: 'Amiri Quran', 'KoGaliModern', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.loadingText,
+.errorText {
+  padding: 1rem;
+  border-radius: var(--radius-xs);
+  text-align: center;
+}
+
+.loadingText { color: #ffffff; }
+
+.errorText {
+  color: #e53e3e;
+  background: rgba(229, 62, 62, 0.1);
+}
+
+.introTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.introSubtitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.introList {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.introList li {
+  background: transparent;
+  backdrop-filter: var(--glass-blur-xl);
+  -webkit-backdrop-filter: var(--glass-blur-xl);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-xs);
+  border: none;
+}
+
+.introFooter {
+  font-size: 1rem;
+  opacity: 0.8;
+  margin-top: 1.5rem;
+}
+
+.dropdownArrow {
+  transition: transform var(--timing-base);
+  display: inline-block;
+  will-change: transform;
+}
+
+.arrowUp {
+  transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dropdownArrow {
+    transition: none;
+    will-change: auto;
+  }
+}
+
+@media (max-width: 1024px) {
+  .searchAndSurahSection {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 100px 2rem 2rem;
+    max-width: 100%;
+  }
+
+  .controlsGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 0;
+    width: 100%;
+  }
+
+  .searchAndSurahSection,
+  .favoritesSection {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    padding: 0.6rem;
+    width: 100%;
+    position: relative;
+  }
+
+  
+  .searchAndSurahSection { z-index: 50; }
+  .favoritesSection      { z-index: 1; }
+
+  .searchAndSurahSection > *,
+  .favoritesSection > * {
+    flex: 0 1 auto;
+    min-width: max-content;
+  }
+
+  .fontControlsCenter {
+    order: 0;
+    flex: 0 1 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .header { padding: 1rem; }
+
+  .searchAndSurahSection {
+    grid-template-columns: 1fr;
+  }
+
+  .quranFrame { padding: 1rem; }
+
+  .surahIndicator { flex-direction: row; }
+
+  .favoritesSection {
+    justify-content: center;
+    gap: 0.8rem;
+  }
+
+  .fontControlsCenter { order: 2; }
+}
+
+@media (max-width: 480px) {
+  .header { padding: 0.75rem; }
+  .subtitle { font-size: 1rem; }
+
+  .searchAndSurahSection {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .quranFrame {
+    padding: 0.75rem;
+    border-radius: var(--radius-md);
+  }
+
+  .surahName {
+    font-family: 'Amiri Quran', 'KoGaliModern', sans-serif;
+    font-size: 1.1rem;
+  }
+
+  .fontControlsCenter {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.wrapper :global(.headerNav) {
+  position: relative;
+}
+
+@media (max-width: 767px) {
+  .wrapper :global(.headerNav) .leftSection {
+    position: fixed;
+    top: 10px;
+    right: 12px;
+    z-index: 1200;
+  }
+
+  .wrapper :global(.headerNav) .rightSection {
+    position: fixed;
+    top: 10px;
+    left: 12px;
+    z-index: 1200;
+  }
+}

@@ -1,0 +1,181 @@
+.verseCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: var(--glass-blur-xl);
+  -webkit-backdrop-filter: var(--glass-blur-xl);
+  background: transparent;
+  border-radius: var(--radius-lg);
+  min-height: 220px;
+  transition: transform var(--timing-base), box-shadow var(--timing-base);
+  overflow: hidden;
+  direction: rtl;
+}
+
+.verseCard::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0) 100%);
+  pointer-events: none;
+}
+
+.verseCard.dark {
+  background: rgba(0, 0, 0, 0.1);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  z-index: 1;
+}
+
+.randomButton {
+  color: #ffffff !important;
+  transition: transform var(--timing-fast), opacity var(--timing-fast);
+  padding: 8px;
+  flex-shrink: 0;
+  will-change: transform;
+}
+
+.randomButton:hover:not(:disabled) {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+.randomButton:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .verseCard { transition: none; }
+  .randomButton { will-change: auto; transition: opacity var(--timing-fast); }
+  .randomButton:hover:not(:disabled) { transform: none; }
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  min-height: 160px;
+  font-weight: 550;
+  font-size: 2.2rem;
+  margin-bottom: -0.5rem;
+}
+
+.verseContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+  margin-bottom: -0.5rem;
+}
+
+.verseText {
+  font-size: 1.2rem;
+  line-height: 2;
+  color: var(--global-text-color);
+  margin: 0 0 1.25rem 0;
+  font-family: 'Amiri', 'Scheherazade New', 'Traditional Arabic', 'Arabic UI Text', 'Segoe UI', sans-serif;
+  direction: rtl;
+  text-align: center;
+  width: 100%;
+  font-feature-settings: 'liga' 1, 'calt' 1;
+  letter-spacing: 0;
+  word-spacing: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.centeredVerseText {
+  text-align: center;
+  direction: rtl;
+  width: auto;
+  display: inline-block;
+}
+
+.verseReference {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-default);
+  width: 100%;
+  direction: rtl;
+}
+
+.surahName {
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: #ffffff;
+  font-family: 'Arial', 'Helvetica', sans-serif;
+}
+
+.verseNumber {
+  font-size: 0.9rem;
+  color: #ffffff;
+  opacity: 0.9;
+  font-family: 'Arial', 'Helvetica', sans-serif;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 160px;
+}
+
+.spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid var(--border-default);
+  border-top-color: var(--brand-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation: none;
+    border-top-color: var(--brand-primary);
+    opacity: 0.6;
+  }
+}
+
+.error {
+  color: #ef4444;
+  font-size: 0.95rem;
+  text-align: center;
+  min-height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  direction: rtl;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+  .verseCard { padding: 1rem 0.75rem; min-height: 200px; }
+  .verseText { font-size: 1.1rem; line-height: 1.9; }
+  .randomButton { transform: scale(0.9); }
+  .content { min-height: 140px; }
+}
+
+@media (max-width: 420px) {
+  .verseCard { padding: 0.75rem 0.6rem; min-height: 160px; }
+  .verseText { font-size: 1rem; line-height: 1.8; }
+}

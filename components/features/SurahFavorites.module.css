@@ -1,0 +1,153 @@
+.container {
+  font-family: inherit;
+  display: flex;
+  gap: 0.6rem;
+  flex-direction: row;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  border: none !important;
+  padding: 0 !important;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+:global(.darkMode) .container {
+  background: transparent !important;
+  border: none !important;
+}
+
+.details {
+  border: none;
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+}
+
+.summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #ffffff;
+  list-style: none;
+  transition: color 0.2s ease;
+  text-align: center;
+  font-family: 'KoGaliModern', sans-serif;
+}
+
+.summary:hover {
+  opacity: 0.8;
+}
+
+
+
+.list {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 300px;
+  overflow-y: auto;
+  padding-right: 12px;
+  padding-left: 0;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+.list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+.list::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+  .list {
+    max-height: 150px;
+  }
+}
+
+.item {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.02);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.item:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.name {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  text-align: center;
+  font-size: 0.95rem;
+  cursor: pointer;
+  flex: 1;
+  padding: 0;
+  text-decoration: none;
+  font-family: 'Amiri Quran', serif;
+}
+
+.remove {
+  background: transparent;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.remove:hover {
+  color: #d32f2f;
+}
+
+.empty {
+  color: white;
+  padding: 6px 0;
+  text-align: center;
+  width: 100%;
+}
+
+:global(.darkMode) .name {
+  color: #ffffff;
+}
+
+:global(.darkMode) .item {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+:global(.darkMode) .item:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+:global(.darkMode) .remove {
+  color: #999;
+}
+
+:global(.darkMode) .remove:hover {
+  color: #ff6b6b;
+}
+

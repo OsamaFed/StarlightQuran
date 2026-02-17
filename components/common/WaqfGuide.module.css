@@ -1,0 +1,84 @@
+.waqfGuide,
+.waqfSymbol,
+.waqfName,
+.waqfTitle,
+.sectionLabel,
+.waqfDescription {
+  color: var(--primary-text-color);
+}
+
+.waqfGuide {
+  text-align: center;
+  width: 100%;
+  direction: rtl;
+}
+
+.waqfTitle {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.sectionLabel {
+  font-size: 0.85rem;
+  font-weight: 600;
+  opacity: 0.65;
+  margin: 14px 0 8px;
+  text-align: right;
+  letter-spacing: 0.02em;
+}
+
+.waqfGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 15px;
+}
+
+.waqfItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 15px 10px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: var(--glass-blur-sm);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-md);
+  transition: all 0.2s ease;
+  min-height: 120px;
+}
+
+:global(.darkMode) .waqfItem {
+  background: rgba(0, 0, 0, 0.08);
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+:global(.darkMode) .waqfItem:hover {
+  background: rgba(0, 0, 0, 0.12);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.waqfSymbol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 45px;
+  margin-bottom: 8px;
+}
+
+.waqfName {
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 4px;
+}
+
+.waqfDescription {
+  font-size: 0.75rem;
+  text-align: center;
+  margin-top: 6px;
+  opacity: 0.7;
+  line-height: 1.4;
+  font-weight: 400;
+}

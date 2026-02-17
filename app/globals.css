@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri+Quran&display=swap');
+
+@font-face {
+  font-family: 'KoGaliModern';
+  src: url('/fonts/KoGaliModern-Thin_1766482124728.otf') format('opentype');
+  font-weight: 100;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'KoGaliModern';
+  src: url('/fonts/KoGaliModern-ExtraLight_1766482124728.otf') format('opentype');
+  font-weight: 200;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'KoGaliModern';
+  src: url('/fonts/KoGaliModern-Light_1766482124728.otf') format('opentype');
+  font-weight: 300;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'KoGaliModern';
+  src: url('/fonts/KoGaliModern-Regular_1766482124728.otf') format('opentype');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'KoGaliModern';
+  src: url('/fonts/KoGaliModern-Medium_1766482124728.otf') format('opentype');
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'KoGaliModern';
+  src: url('/fonts/KoGaliModern-SemiBold_1766482124728.otf') format('opentype');
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'KoGaliModern';
+  src: url('/fonts/KoGaliModern-Bold_1766482124728.otf') format('opentype');
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'KoGaliModern';
+  src: url('/fonts/KoGaliModern-ExtraBold_1766482124728.otf') format('opentype');
+  font-weight: 800;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'KoGaliModern';
+  src: url('/fonts/KoGaliModern-Heavy_1766482124728.otf') format('opentype');
+  font-weight: 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Othmani';
+  src: url('https://fonts.gstatic.com/s/amiriquran/v26/rax_HiS69iVlA_Y2F8_9M9S8.woff2') format('woff2');
+  font-display: swap;
+}
+
+:root {
+  --_clr-lav-100: #FFF9F5;
+  --_clr-lav-200: #F9F7F2;
+  --_clr-lav-300: #EEE9E4;
+  --_clr-lav-acc: #9BA4C4;
+  --_clr-lav-acc-deep: #8891BD;
+  --_clr-lav-soft: #D0D8EF;
+  --_clr-slate-900: #2B3A47;
+  --_clr-slate-700: #5F6B78;
+  --_clr-deep-100: #0a0a12;
+  --_clr-deep-200: #1A2332;
+  --_clr-deep-300: #253449;
+  --_clr-blue-acc: #5B8FE3;
+  --_clr-blue-acc-deep: #3A5A8C;
+
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  --timing-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --timing-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --timing-smooth: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  --glass-blur-xl: blur(16px);
+  --glass-blur-lg: blur(10px);
+  --glass-blur-md: blur(6px);
+  --glass-blur-sm: blur(4px);
+
+  --bg-surface: var(--_clr-lav-200);
+  --bg-surface-elevated: var(--_clr-lav-300);
+  --text-main: var(--_clr-lav-100);
+  --text-dim: var(--_clr-slate-700);
+  --brand-primary: var(--_clr-lav-acc-deep);
+  --brand-secondary: var(--_clr-lav-acc);
+  --brand-soft: var(--_clr-lav-soft);
+  --border-default: rgba(139, 143, 197, 0.25);
+  --glass-effect-bg: rgba(255, 255, 255, 0.2);
+  --glass-effect-border: rgba(208, 216, 239, 0.5);
+  --gradient-action: linear-gradient(135deg, var(--_clr-lav-acc), var(--_clr-lav-acc-deep));
+  --global-text-color: #ffffff;
+  --text-color-white: #ffffff;
+  --text-color-secondary: rgba(255, 255, 255, 0.6);
+  --text-color-dim: rgba(255, 255, 255, 0.5);
+  --foreground: var(--text-main);
+  --primary: var(--brand-primary);
+  --secondary: var(--brand-soft);
+  --border: var(--border-default);
+  --secondary-bg-color: var(--bg-surface);
+  --tertiary-bg-color: var(--bg-surface-elevated);
+  --text-primary: var(--text-main);
+  --text-secondary: var(--text-dim);
+  --border-color: var(--border-default);
+  --accent-color-1: var(--brand-secondary);
+  --accent-color-2: var(--brand-primary);
+  --accent-color-3: var(--brand-soft);
+  --highlight-color: var(--brand-primary);
+  --card-bg: var(--glass-effect-bg);
+  --button-gradient: var(--gradient-action);
+}
+
+[data-theme="dark"], .darkMode {
+  --bg-surface: var(--_clr-deep-200);
+  --bg-surface-elevated: var(--_clr-deep-300);
+  --text-main: #ffffff;
+  --text-dim: #ffffff;
+  --brand-primary: var(--_clr-blue-acc);
+  --brand-secondary: var(--_clr-blue-acc-deep);
+  --brand-soft: var(--_clr-blue-acc);
+  --border-default: rgba(91, 143, 227, 0.25);
+  --glass-effect-bg: rgba(0, 0, 0, 0.08);
+  --glass-effect-border: rgba(91, 143, 227, 0.35);
+  --gradient-action: linear-gradient(135deg, var(--_clr-blue-acc-deep), var(--_clr-blue-acc));
+  --foreground: var(--text-main);
+  --primary: var(--brand-primary);
+  --secondary: var(--brand-secondary);
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Light Mode (default) ── */
+body {
+  font-family: 'KoGaliModern', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #4D82B5;
+  background-attachment: fixed;
+  color: var(--global-text-color);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  z-index: 1;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ── Dark Mode ── */
+body.darkMode,
+[data-theme="dark"] body {
+  background-color: #0a0a12;
+  background-attachment: fixed;
+}
+
+.aurorabg, .iridescencebg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  transition: opacity var(--timing-smooth);
+  will-change: opacity;
+}
+
+.aurorabg      { opacity: 0; }
+.iridescencebg { opacity: 1; }
+
+.darkMode .aurorabg,      [data-theme="dark"] .aurorabg      { opacity: 1; }
+.darkMode .iridescencebg, [data-theme="dark"] .iridescencebg { opacity: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .aurorabg canvas,
+  .iridescencebg canvas {
+    animation-play-state: paused !important;
+  }
+
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.3;
+  margin-bottom: 0.5em;
+  font-weight: 700;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: opacity var(--timing-fast);
+}
+
+a:not(.cardLink):hover { opacity: 0.8; }
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb {
+  background: var(--brand-secondary);
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--brand-primary); }
+
+[data-glass] {
+  backdrop-filter: var(--glass-blur-lg);
+  -webkit-backdrop-filter: var(--glass-blur-lg);
+}
+
+.glass-xl {
+  backdrop-filter: var(--glass-blur-xl);
+  -webkit-backdrop-filter: var(--glass-blur-xl);
+}
+.glass-lg {
+  backdrop-filter: var(--glass-blur-lg);
+  -webkit-backdrop-filter: var(--glass-blur-lg);
+}
+.glass-md {
+  backdrop-filter: var(--glass-blur-md);
+  -webkit-backdrop-filter: var(--glass-blur-md);
+}
+.glass-sm {
+  backdrop-filter: var(--glass-blur-sm);
+  -webkit-backdrop-filter: var(--glass-blur-sm);
+}
+
+.card-base {
+  background: var(--glass-effect-bg);
+  border-radius: var(--radius-lg);
+  transition: all var(--timing-smooth);
+}
+
+.card-elevated {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: var(--glass-blur-md);
+  -webkit-backdrop-filter: var(--glass-blur-md);
+  border-radius: var(--radius-xl);
+}
+
+.text-white     { color: var(--text-color-white); }
+.text-secondary { color: var(--text-color-secondary); }
+.text-dim       { color: var(--text-color-dim); }
+
+.transition-smooth { transition: all var(--timing-smooth); }
+.transition-base   { transition: all var(--timing-base); }
+.transition-fast   { transition: all var(--timing-fast); }
