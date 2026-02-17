@@ -179,10 +179,8 @@ export default function DuasPage() {
     <div className={`${styles.pageWrapper} ${isDarkMode ? styles.darkMode : ""}`}>
       <div className={styles.container}>
         <PageHeader
-          isDarkMode={isDarkMode}
-          onToggle={toggleDarkMode}
-          backLink="/"
-          backText="العودة للرئيسية"
+          backLink="/azkar"
+          backText="العودة للأذكار"
         />
 
         <motion.header

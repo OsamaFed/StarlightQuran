@@ -174,8 +174,6 @@ export default function AzkarPage() {
     <div className={`${styles.pageWrapper} ${isDarkMode ? styles.darkMode : ""}`}>
       <div className={styles.container}>
         <PageHeader
-          isDarkMode={isDarkMode}
-          onToggle={toggleDarkMode}
           backLink="/"
           backText="العودة للرئيسية"
         />

@@ -175,8 +175,6 @@ export default function MushafPage() {
     <div className={`${styles.wrapper} ${mounted && isDarkMode ? styles.darkMode : ""}`}>
       <div className={styles.container}>
         <PageHeader
-          isDarkMode={isDarkMode}
-          onToggle={toggleDarkMode}
           backLink="/"
           backText="العودة للرئيسية"
           showDarkModeToggle={true}

@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect } from "react";
-import { useDebounce } from "usehooks-ts";
+import { useDebounce } from "use-debounce";
 
 export interface UseSearchOptions {
   debounceDelay?: number;
@@ -10,16 +10,13 @@ export function useSearch(options: UseSearchOptions = {}) {
   const { debounceDelay = 300, onSearch } = options;
 
   const [searchQuery, setSearchQuery] = useState("");
-  const debouncedQuery = useDebounce(searchQuery, debounceDelay);
+  const [debouncedQuery] = useDebounce(searchQuery, debounceDelay);
 
-  
   useEffect(() => {
     if (onSearch) {
       onSearch(debouncedQuery);
     }
-    
   }, [debouncedQuery]);
-  
 
   const clearSearch = useCallback(() => {
     setSearchQuery("");

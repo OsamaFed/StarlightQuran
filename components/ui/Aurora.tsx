@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { Renderer, Program, Mesh, Color, Triangle } from 'ogl';
 import { useEffect, useRef } from 'react';
 
@@ -98,34 +98,39 @@ void main() {
 
   float height = snoise(vec2(uv.x * 1.5 + uTime * 0.1, uv.y * 1.5 + uTime * 0.15)) * 0.5 * uAmplitude;
   height = exp(height);
-  
-  
+
   float n1 = snoise(uv * 1.5 + uTime * 0.05);
   float n2 = snoise(uv * 2.5 - uTime * 0.08);
   float pattern = (n1 + n2) * 0.5;
-  
+
   float intensity = smoothstep(-0.5, 1.5, pattern + height * 0.2);
-
   float auroraAlpha = smoothstep(-uBlend, uBlend, intensity);
-
   vec3 auroraColor = intensity * rampColor;
 
   fragColor = vec4(auroraColor * auroraAlpha, auroraAlpha * 0.3);
 }
 `;
 
-export default function Aurora(props) {
+interface AuroraProps {
+  colorStops?: string[];
+  amplitude?: number;
+  blend?: number;
+  time?: number;
+  speed?: number;
+}
+
+export default function Aurora(props: AuroraProps) {
   const { colorStops = ['#5227FF', '#7cff67', '#5227FF'], amplitude = 1.0, blend = 0.5 } = props;
   const propsRef = useRef(props);
   propsRef.current = props;
 
-  const ctnDom = useRef(null);
+  const ctnDom = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctn = ctnDom.current;
     if (!ctn) return;
 
-    let renderer;
+    let renderer: Renderer;
     try {
       renderer = new Renderer({
         alpha: true,
@@ -136,18 +141,19 @@ export default function Aurora(props) {
       console.warn("WebGL not supported, skipping Aurora effect.");
       return;
     }
+
     const gl = renderer.gl;
     gl.clearColor(0, 0, 0, 0);
     gl.enable(gl.BLEND);
     gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
     gl.canvas.style.backgroundColor = 'transparent';
 
-    let program;
+    let program: Program;
 
     function resize() {
       if (!ctn) return;
-      const width = window.innerWidth;   
-      const height = window.innerHeight; 
+      const width = window.innerWidth;
+      const height = window.innerHeight;
       renderer.setSize(width, height);
       if (program) {
         program.uniforms.uResolution.value = [width, height];
@@ -173,17 +179,16 @@ export default function Aurora(props) {
         uTime: { value: 0 },
         uAmplitude: { value: amplitude },
         uColorStops: { value: colorStopsArray },
-        uResolution: { value: [window.innerWidth, window.innerHeight] }, 
+        uResolution: { value: [window.innerWidth, window.innerHeight] },
         uBlend: { value: blend }
       }
     });
-
 
     const mesh = new Mesh(gl, { geometry, program });
     ctn.appendChild(gl.canvas);
 
     let animateId = 0;
-    const update = t => {
+    const update = (t: number) => {
       animateId = requestAnimationFrame(update);
       const { time = t * 0.01, speed = 1.0 } = propsRef.current;
       program.uniforms.uTime.value = time * speed * 0.1;
