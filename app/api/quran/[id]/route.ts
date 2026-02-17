@@ -1,7 +1,6 @@
 import { quranClient } from "@/lib/quran";
 import { NextResponse } from "next/server";
 
-
 export const revalidate = 86400;
 
 const MIN_SURAH = 1;
@@ -14,7 +13,6 @@ export async function GET(
 ) {
   const { id } = await params;
 
-  
   const surahId = parseInt(id, 10);
   if (isNaN(surahId) || surahId < MIN_SURAH || surahId > MAX_SURAH) {
     return NextResponse.json(
@@ -23,19 +21,16 @@ export async function GET(
     );
   }
 
-  
   const url = new URL(req.url);
 
-  
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
 
   try {
-    
     const [chapter, verses] = await Promise.all([
-      quranClient.chapters.findById(String(surahId)),
-      quranClient.verses.findByChapter(String(surahId), {
-        perPage: 300, 
+      quranClient.chapters.findById(String(surahId) as any),
+      quranClient.verses.findByChapter(String(surahId) as any, {
+        perPage: 300,
         fields: { textUthmani: true },
       }),
     ]);
@@ -56,7 +51,6 @@ export async function GET(
       },
       {
         headers: {
-          
           "Cache-Control": "public, s-maxage=86400, stale-while-revalidate=604800",
         },
       }
@@ -64,7 +58,6 @@ export async function GET(
   } catch (error: any) {
     clearTimeout(timeoutId);
 
-    
     const isTimeout = error.name === "AbortError";
     const isNotFound = error.message?.includes("404") || error.status === 404;
 
