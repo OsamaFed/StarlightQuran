@@ -6,18 +6,14 @@ import LightModeToggle from "../ui/LightModeToggle";
 import styles from "./PageHeader.module.css";
 
 interface PageHeaderProps {
-  isDarkMode: boolean;
-  onToggle: () => void;
   backLink: string;
   backText?: string;
   showBackButton?: boolean;
   showDarkModeToggle?: boolean;
 }
 
-export default function PageHeader({ 
-  isDarkMode, 
-  onToggle, 
-  backLink, 
+export default function PageHeader({
+  backLink,
   backText,
   showBackButton = true,
   showDarkModeToggle = true,
@@ -34,11 +30,9 @@ export default function PageHeader({
           <BackToggle href={backLink} text={backText} />
         )}
       </div>
-      
+
       <div className={styles.rightSection}>
-        {showDarkModeToggle && (
-          <LightModeToggle isDarkMode={isDarkMode} onToggle={onToggle} />
-        )}
+        {showDarkModeToggle && <LightModeToggle />}
       </div>
     </motion.nav>
   );
