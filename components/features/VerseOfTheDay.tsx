@@ -57,13 +57,11 @@ const getRandomVerse = async (): Promise<VerseData> => {
 const getTodaysVerse = async (): Promise<VerseData> => {
   try {
     const today = new Date();
-    const dayOfYear = Math.floor(
-      (today.getTime() -
-        new Date(today.getFullYear(), 0, 0).getTime()) /
-        86400000
-    );
+    const seed = today.getFullYear() * 10000 + 
+                 (today.getMonth() + 1) * 100 + 
+                 today.getDate();
 
-    const verseNumber = (dayOfYear % 6236) + 1;
+    const verseNumber = (seed % 6236) + 1;
 
     const response = await fetch(
       `https://api.alquran.cloud/v1/ayah/${verseNumber}/quran-simple`
@@ -79,6 +77,8 @@ const getTodaysVerse = async (): Promise<VerseData> => {
     throw error;
   }
 };
+
+
 
 export default function VerseOfTheDay({
   isDarkMode,
